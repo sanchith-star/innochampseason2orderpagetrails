@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>InfraNova | Intelligent Infrastructure</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:#05070b;
+    color:#f4f7fa;
+    min-height:100vh;
+}
+
+/* HEADER */
+
+header{
+    height:74px;
+    padding:0 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(5,7,11,.86);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.logo-box{
+    width:39px;
+    height:39px;
+    border:1px solid #32dcff;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#32dcff;
+    font-weight:800;
+    box-shadow:0 0 22px rgba(50,220,255,.2);
+}
+
+.logo-text{
+    font-family:"Space Grotesk";
+    font-size:20px;
+    font-weight:700;
+}
+
+.logo-text span{
+    color:#32dcff;
+}
+
+.online{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:11px;
+    color:#8993a2;
+}
+
+.online-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#40e889;
+    box-shadow:0 0 12px #40e889;
+}
+
+/* HERO */
+
+.hero{
+    max-width:1200px;
+    margin:auto;
+    padding:90px 7% 70px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.tag{
+    color:#32dcff;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+h1{
+    font-family:"Space Grotesk";
+    font-size:clamp(45px,6vw,76px);
+    line-height:.98;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+h1 span{
+    color:#32dcff;
+    text-shadow:0 0 28px rgba(50,220,255,.2);
+}
+
+.hero p{
+    max-width:540px;
+    color:#9ba5b3;
+    font-size:15px;
+    line-height:1.8;
+}
+
+.buttons{
+    display:flex;
+    gap:13px;
+    margin-top:30px;
+}
+
+.primary,
+.secondary{
+    padding:14px 22px;
+    border-radius:9px;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.primary{
+    background:#32dcff;
+    color:#031016;
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,.14);
+    color:white;
+}
+
+/* FUTURISTIC VISUAL */
+
+.visual{
+    height:390px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:24px;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at center,rgba(50,220,255,.07),transparent 45%),
+        #090d13;
+}
+
+.grid{
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(50,220,255,.055) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(50,220,255,.055) 1px,transparent 1px);
+    background-size:35px 35px;
+    transform:perspective(500px) rotateX(58deg) scale(1.5);
+    transform-origin:center bottom;
+}
+
+.scan{
+    position:absolute;
+    width:250px;
+    height:250px;
+    border:1px solid rgba(50,220,255,.35);
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    margin:-125px;
+    animation:rotate 5s linear infinite;
+}
+
+.scan:after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:50%;
+    height:2px;
+    background:#32dcff;
+    transform-origin:left;
+    box-shadow:0 0 14px #32dcff;
+}
+
+.pole{
+    position:absolute;
+    width:20px;
+    height:245px;
+    background:linear-gradient(90deg,#272e37,#b3bcc5,#252c35);
+    left:50%;
+    bottom:55px;
+    transform:translateX(-50%);
+    border-radius:7px;
+    z-index:3;
+}
+
+.camera{
+    position:absolute;
+    width:80px;
+    height:49px;
+    left:50%;
+    top:20px;
+    transform:translateX(-50%);
+    background:#151b22;
+    border:1px solid #687481;
+    border-radius:11px;
+}
+
+.camera:before{
+    content:"";
+    position:absolute;
+    width:21px;
+    height:21px;
+    right:10px;
+    top:12px;
+    border:3px solid #32dcff;
+    border-radius:50%;
+    box-shadow:0 0 18px #32dcff;
+}
+
+.camera:after{
+    content:"AI";
+    position:absolute;
+    left:10px;
+    top:16px;
+    color:#32dcff;
+    font-size:9px;
+    font-weight:800;
+}
+
+.detected{
+    position:absolute;
+    right:20px;
+    top:20px;
+    padding:11px 14px;
+    border:1px solid rgba(50,220,255,.2);
+    background:rgba(4,8,12,.85);
+    border-radius:9px;
+    font-size:9px;
+    color:#8994a3;
+}
+
+.detected strong{
+    display:block;
+    color:#32dcff;
+    font-size:11px;
+    margin-bottom:4px;
+}
+
+@keyframes rotate{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+/* FEATURES */
+
+.section{
+    max-width:1200px;
+    margin:auto;
+    padding:35px 7% 80px;
+}
+
+.section-title{
+    font-family:"Space Grotesk";
+    font-size:31px;
+    margin-bottom:9px;
+}
+
+.subtitle{
+    color:#858f9f;
+    font-size:13px;
+    margin-bottom:30px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.feature{
+    padding:22px;
+    min-height:155px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.025);
+    transition:.25s;
+}
+
+.feature:hover{
+    transform:translateY(-4px);
+    border-color:rgba(50,220,255,.3);
+}
+
+.icon{
+    font-size:23px;
+    margin-bottom:14px;
+}
+
+.feature h3{
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#7e8999;
+    font-size:11px;
+    line-height:1.65;
+}
+
+/* ORDER */
+
+.order-section{
+    max-width:850px;
+    margin:auto;
+    padding:30px 7% 100px;
+}
+
+.order-card{
+    background:rgba(10,14,20,.9);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:22px;
+    padding:34px;
+    box-shadow:0 25px 90px rgba(0,0,0,.3);
+}
+
+.product{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding-bottom:25px;
+    margin-bottom:27px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.product-name{
+    font-family:"Space Grotesk";
+    font-size:22px;
+    font-weight:700;
+}
+
+.product-description{
+    color:#7f8998;
+    font-size:11px;
+    margin-top:5px;
+}
+
+.price{
+    color:#32dcff;
+    font-size:25px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    color:#aab4c1;
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:14px;
+    background:#0b1016;
+    border:1px solid #252e39;
+    border-radius:9px;
+    color:white;
+    font-family:inherit;
+    outline:none;
+}
+
+textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#32dcff;
+    box-shadow:0 0 0 3px rgba(50,220,255,.06);
+}
+
+.order-button{
+    width:100%;
+    padding:15px;
+    margin-top:7px;
+    border:0;
+    border-radius:9px;
+    background:#32dcff;
+    color:#031016;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.order-button:hover{
+    box-shadow:0 10px 35px rgba(50,220,255,.2);
+}
+
+/* CHECKOUT */
+
+#checkout{
+    display:none;
+}
+
+.summary{
+    background:#080c11;
+    border:1px solid #202934;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:22px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    color:#8994a3;
+    font-size:12px;
+    padding:7px 0;
+}
+
+.summary-row.total{
+    border-top:1px solid #242d38;
+    margin-top:7px;
+    padding-top:13px;
+    color:white;
+    font-weight:800;
+}
+
+.summary-row.total span:last-child{
+    color:#32dcff;
+    font-size:18px;
+}
+
+/* SUCCESS */
+
+#success{
+    display:none;
+    text-align:center;
+}
+
+.success-circle{
+    width:67px;
+    height:67px;
+    border:1px solid #32dcff;
+    border-radius:50%;
+    margin:0 auto 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#32dcff;
+    font-size:30px;
+    box-shadow:0 0 30px rgba(50,220,255,.15);
+}
+
+#success h2{
+    font-family:"Space Grotesk";
+    margin-bottom:10px;
+}
+
+#success p{
+    color:#8994a3;
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.07);
+    padding:28px 7%;
+    display:flex;
+    justify-content:space-between;
+    color:#657080;
+    font-size:10px;
+}
+
+footer strong{
+    color:#aab3c0;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:60px;
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .visual{
+        height:320px;
+    }
+}
+
+@media(max-width:520px){
+
+    header{
+        padding:0 5%;
+    }
+
+    .online{
+        display:none;
+    }
+
+    h1{
+        font-size:43px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .product{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .order-card{
+        padding:23px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+
+        <div class="logo-box">
+            IN
+        </div>
+
+        <div class="logo-text">
+            Infra<span>Nova</span>
+        </div>
+
+    </div>
+
+    <div class="online">
+        <span class="online-dot"></span>
+        SYSTEM ONLINE
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div>
+
+        <div class="tag">
+            Intelligent Infrastructure
+        </div>
+
+        <h1>
+            See the road<br>
+            <span>before it fails.</span>
+        </h1>
+
+        <p>
+            InfraNova is an intelligent infrastructure monitoring
+            system designed to identify road and public infrastructure
+            problems and help deliver rapid alerts for response.
+        </p>
+
+        <div class="buttons">
+
+            <a class="primary" href="#order">
+                Order InfraNova
+            </a>
+
+            <a class="secondary" href="#technology">
+                Explore Technology
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCT ANIMATION -->
+
+    <div class="visual">
+
+        <div class="grid"></div>
+
+        <div class="scan"></div>
+
+        <div class="pole">
+
+            <div class="camera"></div>
+
+        </div>
+
+        <div class="detected">
+
+            <strong>AI DETECTION</strong>
+            INFRASTRUCTURE SCAN ACTIVE
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TECHNOLOGY -->
+
+<section class="section" id="technology">
+
+    <div class="tag">
+        Technology
+    </div>
+
+    <div class="section-title">
+        Intelligence at the roadside.
+    </div>
+
+    <div class="subtitle">
+        Automated observation designed for smarter and safer infrastructure.
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="icon">◉</div>
+
+            <h3>
+                AI Vision
+            </h3>
+
+            <p>
+                Camera-based AI analyzes captured images
+                to identify infrastructure abnormalities.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="icon">⌁</div>
+
+            <h3>
+                Continuous Monitoring
+            </h3>
+
+            <p>
+                Automated monitoring can reduce dependence
+                on manual infrastructure inspection.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="icon">△</div>
+
+            <h3>
+                Rapid Alerts
+            </h3>
+
+            <p>
+                Detected problems can be communicated
+                to the appropriate monitoring system.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="icon">⌖</div>
+
+            <h3>
+                Smart Infrastructure
+            </h3>
+
+            <p>
+                Technology designed to support responsive
+                and safer public infrastructure.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ORDER -->
+
+<section class="order-section" id="order">
+
+    <div class="order-card">
+
+
+        <!-- PRODUCT -->
+
+        <div id="productStep">
+
+            <div class="tag">
+                Product
+            </div>
+
+            <div class="product">
+
+                <div>
+
+                    <div class="product-name">
+                        🚀 InfraNova Monitoring Unit
+                    </div>
+
+                    <div class="product-description">
+                        AI-powered roadside infrastructure monitoring
+                    </div>
+
+                </div>
+
+                <div class="price">
+                    ₹4,999
+                </div>
+
+            </div>
+
+            <button
+                class="order-button"
+                onclick="openCheckout()"
+            >
+                ORDER NOW →
+            </button>
+
+        </div>
+
+
+        <!-- CHECKOUT -->
+
+        <div id="checkout">
+
+            <div class="tag">
+                Secure Order
+            </div>
+
+            <div class="section-title">
+                Complete your order
+            </div>
+
+            <div class="subtitle">
+                Enter your information to place the InfraNova order.
+            </div>
+
+
+            <div class="summary">
+
+                <div class="summary-row">
+                    <span>Product</span>
+                    <span>InfraNova</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Quantity</span>
+                    <span>1</span>
+                </div>
+
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>₹4,999</span>
+                </div>
+
+            </div>
+
+
+            <!--
+                FORM SUBMIT
+                The order is sent directly to:
+                tamscserd@gmail.com
+            -->
+
+            <form
+                action="https://formsubmit.co/tamscserd@gmail.com"
+                method="POST"
+                onsubmit="showSuccess()"
+            >
+
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="New InfraNova Order"
+                >
+
+                <input
+                    type="hidden"
+                    name="_captcha"
+                    value="false"
+                >
+
+                <input
+                    type="hidden"
+                    name="_template"
+                    value="table"
+                >
+
+                <input
+                    type="hidden"
+                    name="Product"
+                    value="InfraNova Monitoring Unit"
+                >
+
+                <input
+                    type="hidden"
+                    name="Price"
+                    value="₹4,999"
+                >
+
+
+                <div class="form-group">
+
+                    <label>
+                        FULL NAME
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Customer Name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        PHONE NUMBER
+                    </label>
+
+                    <input
+                        type="tel"
+                        name="Phone Number"
+                        placeholder="Enter your phone number"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        DELIVERY ADDRESS
+                    </label>
+
+                    <textarea
+                        name="Delivery Address"
+                        placeholder="Enter your complete address"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        PAYMENT METHOD
+                    </label>
+
+                    <select
+                        name="Payment Method"
+                        required
+                    >
+
+                        <option value="">
+                            Select payment method
+                        </option>
+
+                        <option value="GPay">
+                            GPay
+                        </option>
+
+                        <option value="Card Pay">
+                            Card Pay
+                        </option>
+
+                        <option value="Cash on Delivery">
+                            Cash on Delivery
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="order-button"
+                >
+                    PLACE ORDER →
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- SUCCESS -->
+
+        <div id="success">
+
+            <div class="success-circle">
+                ✓
+            </div>
+
+            <h2>
+                Order Submitted
+            </h2>
+
+            <p>
+                Your InfraNova order has been submitted successfully.
+                Our team will review your details and contact you
+                using the phone number provided.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        © 2026 <strong>InfraNova</strong>
+    </div>
+
+    <div>
+        Intelligent Infrastructure • Smart Monitoring
+    </div>
+
+</footer>
+
+
+<script>
+
+function openCheckout(){
+
+    document.getElementById("productStep").style.display="none";
+
+    document.getElementById("checkout").style.display="block";
+
+    document.getElementById("order").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+function showSuccess(){
+
+    /*
+       The browser submits the form to FormSubmit.
+       This screen appears while the submission is being processed.
+    */
+
+    document.getElementById("checkout").style.display="none";
+
+    document.getElementById("success").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
