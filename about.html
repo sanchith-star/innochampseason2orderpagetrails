@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About InfraNova</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Inter,sans-serif;
+background:#05070b;
+color:#f5f7fa;
+min-height:100vh;
+}
+
+header{
+height:76px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 7%;
+background:rgba(5,7,11,.9);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-family:"Space Grotesk";
+font-size:22px;
+font-weight:700;
+}
+
+.logo span{color:#35dcff}
+
+nav{display:flex;gap:28px}
+
+nav a{
+color:#aab3c0;
+text-decoration:none;
+font-size:13px;
+font-weight:600;
+}
+
+nav a:hover{color:#35dcff}
+
+.container{
+max-width:1050px;
+margin:auto;
+padding:100px 7%;
+}
+
+.tag{
+color:#35dcff;
+font-size:11px;
+font-weight:800;
+letter-spacing:2px;
+text-transform:uppercase;
+margin-bottom:18px;
+}
+
+h1{
+font-family:"Space Grotesk";
+font-size:clamp(45px,6vw,70px);
+letter-spacing:-3px;
+margin-bottom:25px;
+}
+
+h1 span{color:#35dcff}
+
+.main-card{
+padding:38px;
+border:1px solid rgba(255,255,255,.1);
+border-radius:20px;
+background:rgba(255,255,255,.025);
+box-shadow:0 25px 80px rgba(0,0,0,.25);
+}
+
+.main-card p{
+font-size:16px;
+line-height:2;
+color:#a0aab8;
+}
+
+.highlight{
+margin-top:35px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.box{
+padding:24px;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+background:#090d13;
+}
+
+.box h3{
+font-size:14px;
+margin-bottom:9px;
+}
+
+.box p{
+font-size:11px;
+line-height:1.7;
+color:#7f8998;
+}
+
+.order{
+display:inline-block;
+margin-top:35px;
+padding:14px 23px;
+border-radius:9px;
+background:#35dcff;
+color:#031016;
+text-decoration:none;
+font-weight:800;
+font-size:13px;
+}
+
+footer{
+border-top:1px solid rgba(255,255,255,.07);
+padding:28px 7%;
+display:flex;
+justify-content:space-between;
+color:#667181;
+font-size:10px;
+}
+
+footer strong{color:#aab3c0}
+
+@media(max-width:650px){
+nav{gap:14px}
+nav a{font-size:11px}
+.highlight{grid-template-columns:1fr}
+.main-card{padding:24px}
+footer{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Infra<span>Nova</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="order.html">Order</a>
+</nav>
+
+</header>
+
+
+<main class="container">
+
+<div class="tag">
+About InfraNova
+</div>
+
+<h1>
+Infrastructure<br>
+<span>reimagined.</span>
+</h1>
+
+
+<div class="main-card">
+
+<p>
+InfraNova is an AI-powered smart infrastructure monitoring
+system designed to improve road safety and emergency response.
+ESP32-CAM devices installed on roadside poles capture images
+at regular intervals, while AI detects problems such as open
+manholes, potholes, road cracks, and accidents. When an issue
+is detected, the system sends an alert to a central dashboard
+so authorities can respond quickly.
+</p>
+
+
+<div class="highlight">
+
+<div class="box">
+<h3>Road Safety</h3>
+<p>
+Designed to help identify hazards that may affect
+road users.
+</p>
+</div>
+
+<div class="box">
+<h3>AI Monitoring</h3>
+<p>
+AI analyzes images captured by roadside monitoring
+devices.
+</p>
+</div>
+
+<div class="box">
+<h3>Emergency Response</h3>
+<p>
+Alerts can help authorities become aware of detected
+issues more quickly.
+</p>
+</div>
+
+</div>
+
+
+<a href="order.html" class="order">
+Order InfraNova →
+</a>
+
+</div>
+
+</main>
+
+
+<footer>
+<div>© 2026 <strong>InfraNova</strong></div>
+<div>Intelligent Infrastructure • Smart Monitoring</div>
+</footer>
+
+</body>
+</html>
